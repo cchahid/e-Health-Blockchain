@@ -1,0 +1,373 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "doctorAddress",
+						"type": "address"
+					}
+				],
+				"name": "DoctorAdded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "doctorAddress",
+						"type": "address"
+					}
+				],
+				"name": "DoctorRemoved",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "patientAddress",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "doctorAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "RecordAdded",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_doctorAddress",
+						"type": "address"
+					}
+				],
+				"name": "addDoctor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_patientAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_diagnosis",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_prescription",
+						"type": "string"
+					}
+				],
+				"name": "addMedicalRecord",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_patientAddress",
+						"type": "address"
+					}
+				],
+				"name": "getPatientRecords",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "timestamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "diagnosis",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "prescription",
+								"type": "string"
+							},
+							{
+								"internalType": "address",
+								"name": "doctor",
+								"type": "address"
+							}
+						],
+						"internalType": "struct EHealth.MedicalRecord[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_patientAddress",
+						"type": "address"
+					}
+				],
+				"name": "getRecordsCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_patientAddress",
+						"type": "address"
+					}
+				],
+				"name": "hasMedicalHistory",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "isDoctor",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "records",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "diagnosis",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "prescription",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "doctor",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_doctorAddress",
+						"type": "address"
+					}
+				],
+				"name": "removeDoctor",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Ce contrat intelligent gère les dossiers médicaux des patients de manière sécurisée et décentralisée. Il permet à des médecins autorisés d'ajouter des dossiers pour les patients. Les médecins peuvent consulter l'historique de n'importe quel patient. Les patients peuvent uniquement consulter leur propre historique médical. Le propriétaire du contrat est responsable de l'ajout et de la révocation des médecins.",
+			"kind": "dev",
+			"methods": {
+				"addDoctor(address)": {
+					"details": "Seul le propriétaire du contrat peut appeler cette fonction.",
+					"params": {
+						"_doctorAddress": "L'adresse Ethereum du médecin à ajouter."
+					}
+				},
+				"addMedicalRecord(address,string,string)": {
+					"details": "Gère à la fois les nouveaux patients et les patients existants. Si le patient n'existe pas, son historique est créé. S'il existe, le dossier est ajouté à son historique. Seul un médecin autorisé peut appeler cette fonction.",
+					"params": {
+						"_diagnosis": "Le diagnostic de la visite.",
+						"_patientAddress": "L'adresse du patient concerné.",
+						"_prescription": "La prescription médicale."
+					}
+				},
+				"constructor": {
+					"details": "Le constructeur initialise le propriétaire du contrat lors du déploiement."
+				},
+				"getPatientRecords(address)": {
+					"details": "L'accès est conditionnel : - Un médecin peut voir l'historique de n'importe quel patient. - Un patient peut voir uniquement son propre historique.",
+					"params": {
+						"_patientAddress": "L'adresse du patient dont on veut consulter l'historique."
+					},
+					"returns": {
+						"_0": "MedicalRecord[] La liste des dossiers médicaux du patient."
+					}
+				},
+				"getRecordsCount(address)": {
+					"details": "Utile pour savoir rapidement combien de visites un patient a eues.",
+					"params": {
+						"_patientAddress": "L'adresse du patient."
+					},
+					"returns": {
+						"_0": "uint Le nombre total de dossiers médicaux."
+					}
+				},
+				"hasMedicalHistory(address)": {
+					"details": "C'est une fonction utilitaire pour les interfaces utilisateur.",
+					"params": {
+						"_patientAddress": "L'adresse du patient à vérifier."
+					},
+					"returns": {
+						"_0": "bool Vrai si le patient a au moins un dossier, sinon faux."
+					}
+				},
+				"removeDoctor(address)": {
+					"details": "Seul le propriétaire du contrat peut appeler cette fonction.",
+					"params": {
+						"_doctorAddress": "L'adresse Ethereum du médecin à révoquer."
+					}
+				}
+			},
+			"title": "EHealth",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"addDoctor(address)": {
+					"notice": "Ajoute une nouvelle adresse de médecin."
+				},
+				"addMedicalRecord(address,string,string)": {
+					"notice": "Ajoute un nouveau dossier médical pour un patient."
+				},
+				"getPatientRecords(address)": {
+					"notice": "Récupère l'historique médical complet d'un patient."
+				},
+				"getRecordsCount(address)": {
+					"notice": "Récupère le nombre de dossiers pour un patient donné."
+				},
+				"hasMedicalHistory(address)": {
+					"notice": "(NOUVEAU) Vérifie si un patient a déjà un historique médical."
+				},
+				"removeDoctor(address)": {
+					"notice": "Révoque les droits d'une adresse de médecin."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/ehealth1.sol": "EHealth"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/ehealth1.sol": {
+			"keccak256": "0x3bb97d760e827231ff9a6633ee9f29d730c925f9d0036fb9d5208cccaac1508e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1e3877a0661300ef4ee0e94f752faa9d8845ccb17d39ee6b3951c4dacde7d508",
+				"dweb:/ipfs/QmXAj6YwnUtndYjKKrg4k2Sh5pBTeQQDGB7FJCwNgRvETZ"
+			]
+		}
+	},
+	"version": 1
+}
