@@ -28,9 +28,6 @@ This project implements a decentralized application (DApp) for managing electron
 * **Package Manager:** pnpm
 * **(Optional) Deployment Scripts:** TypeScript scripts using Ethers.js/Web3.js are available for alternative deployment methods.
 
-## Project Structure
-"""e-Health-Blockchain/ ├── artifacts/ # Compiled smart contract artifacts (from Remix or scripts) ├── contracts/ # Solidity smart contract source files │ ├── EHealth.sol # Main smart contract logic │ └── ... ├── healthcare-Front/ # Next.js frontend application source code │ ├── app/ │ ├── components/ │ ├── constants/ # Contract ABI/Address, UI constants │ ├── hooks/ │ ├── lib/ │ ├── public/ │ ├── package.json │ └── ... ├── scripts/ # (Alternative) Deployment and interaction scripts ├── tests/ # Test files ├── .gitignore ├── .prettierrc.json ├── compiler_config.json # Solidity compiler configuration (if used locally) └── README.md # This file"""
-
 ## Getting Started
 
 ### Prerequisites
